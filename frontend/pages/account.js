@@ -1,7 +1,7 @@
 const AccountPage = () => (
-  <div>
-    <p>AccountPage</p>
-  </div>
-);
+    <div>
+        <p>AccountPage</p>
+    </div>
+)
 
-export default AccountPage;
+export default AccountPage

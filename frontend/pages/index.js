@@ -1,7 +1,3 @@
-const IndexPage = () => (
-  <div>
-    <p>hello</p>
-  </div>
-);
+const IndexPage = () => <p>IndexPage</p>
 
-export default IndexPage;
+export default IndexPage
