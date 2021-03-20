@@ -8,6 +8,7 @@ import { config, createSchema } from '@keystone-next/keystone/schema';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { User } from './schemas/User';
+import { insertSeedData } from './seed-data/index';
 
 const databaseURL = process.env.DATABASE_URL || '';
 
@@ -38,6 +39,13 @@ export default withAuth(
       adapter: 'mongoose',
       url: databaseURL,
       // TODO add data seeding
+      async onConnect(keystone) {
+        console.log('\n', 'Connected to the database', '\n');
+        // check if '--seed-data' string exists in the parameters of the run command
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone);
+        }
+      },
     },
     // lists are the datatypes keystone uses
     lists: createSchema({

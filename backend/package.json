@@ -35,10 +35,17 @@
     ]
   },
   "nodemonConfig": {
-    "watch": [".", "schemas"],
+    "watch": [
+      ".",
+      "schemas"
+    ],
     "verbose": false,
     "ext": "ts,json",
-    "ignore": ["*.test.js", ".keystone/*", ".vscode/*"],
+    "ignore": [
+      "*.test.js",
+      ".keystone/*",
+      ".vscode/*"
+    ],
     "delay": "3000",
     "exec": "yarn dev"
   },
