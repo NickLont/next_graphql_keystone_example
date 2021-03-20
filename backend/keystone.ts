@@ -6,6 +6,7 @@ import {
 import 'dotenv/config'; // gives access to environmental variable values
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 import { User } from './schemas/User';
 
 const databaseURL = process.env.DATABASE_URL || '';
@@ -43,6 +44,7 @@ export default withAuth(
       // schema items go here
       User,
       Product,
+      ProductImage,
     }),
     // manage who has access to the external api for the data
     ui: {
