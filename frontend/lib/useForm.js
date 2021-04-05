@@ -5,12 +5,13 @@ const useForm = (initial = {}) => {
     const [inputs, setInputs] = useState(initial)
 
     const handleChange = (e) => {
-        const { name, value, type } = e.target
+        const { name, value, type, files } = e.target
         let parsedValue
         if (type === 'number') {
             parsedValue = parseInt(value)
         } else if (type === 'file') {
-            parsedValue = e.target.files
+            const [firstItem] = files
+            parsedValue = firstItem
         } else {
             parsedValue = value
         }
