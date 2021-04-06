@@ -1,5 +1,33 @@
+import { useMutation } from '@apollo/client'
+import gql from 'graphql-tag'
 import useForm from '../lib/useForm'
 import Form from './styles/formStyles'
+import DisplayError from './DisplayError'
+
+const CREATE_PRODUCT_MUTATION = gql`
+    mutation CREATE_PRODUCT_MUTATION(
+        # Which variables are getting passed in and what types are they
+        $name: String!
+        $description: String!
+        $price: Int!
+        $image: Upload
+    ) {
+        createProduct(
+            data: {
+                name: $name
+                description: $description
+                price: $price
+                status: "AVAILABLE"
+                photo: { create: { image: $image, altText: $name } }
+            }
+        ) {
+            id
+            name
+            description
+            price
+        }
+    }
+`
 
 const CreateProduct = () => {
     const { inputs, handleChange, resetForm, clearForm } = useForm({
@@ -9,23 +37,22 @@ const CreateProduct = () => {
         description: 'These are the best shoes',
     })
 
+    const [createProduct, { loading, error, data }] = useMutation(CREATE_PRODUCT_MUTATION, {
+        variables: inputs,
+    })
+
     return (
         <Form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
                 e.preventDefault()
+                await createProduct()
+                clearForm()
             }}
         >
-            <fieldset>
+            <fieldset disabled={loading} aria-busy={loading}>
                 <label htmlFor="image">
                     Image:
-                    <input
-                        type="file"
-                        id="image"
-                        name="image"
-                        required
-                        defaultValue={inputs.image}
-                        onChange={handleChange}
-                    />
+                    <input type="file" id="image" name="image" onChange={handleChange} />
                 </label>
                 <label htmlFor="name">
                     Name:
@@ -33,6 +60,7 @@ const CreateProduct = () => {
                         type="text"
                         id="name"
                         name="name"
+                        required
                         placeholder="name"
                         value={inputs.name}
                         onChange={handleChange}
@@ -62,6 +90,7 @@ const CreateProduct = () => {
                 </label>
             </fieldset>
             <button type="submit">Add product</button>
+            <DisplayError error={error} />
         </Form>
     )
 }
