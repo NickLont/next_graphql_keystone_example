@@ -31,8 +31,6 @@ const useForm = (initial = {}) => {
             input[1] = ''
             return input
         })
-        console.log('inputs: ', inputs)
-        console.log('blankState: ', blankState)
         setInputs(Object.fromEntries(blankState))
     }
 
