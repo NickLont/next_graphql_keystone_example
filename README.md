@@ -2,7 +2,7 @@
 
 ## Dev. instructions
 
-`git clone https://github.com/NickLont/next_graphql_keystone_example.git`
+`git clone https://github.com/NickLont/next_graphql_keystone_example.git`<br />
 `cd next_graphql_keystone_example`
 ### Backend:
 
