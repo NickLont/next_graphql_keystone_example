@@ -1,13 +1,24 @@
 version: '3'
 services:
-  keystone:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    volumes:
-        - ./backend/keystone.js:/usr/src/app/keystone.js
-        - ./backend/models:/usr/src/app/models
-        - ./backend/routes:/usr/src/app/routes
-        - ./backend/updates:/usr/src/app/updates
-    ports:
-      - "3000:3000"
+    # keystone:
+    #     build:
+    #       context: ./backend
+    #     volumes:
+    #       - ./backend/keystone.js:/usr/src/app/keystone.js
+    #       - ./backend/models:/usr/src/app/models
+    #       - ./backend/routes:/usr/src/app/routes
+    #       - ./backend/updates:/usr/src/app/updates
+    #     ports:
+    #       - "3000:3000"
+        # networks:
+        #   - app-tier
+    next-ui:
+        build:
+            context: ./frontend
+        ports:
+            - "7777:7777"
+        container_name: nextjs-ui
+        stdin_open: true
+        volumes:
+            - ./frontend:/usr/src/app/frontend
+            - /usr/src/app/frontend/node_modules
