@@ -18,4 +18,4 @@ By default the result will be visible at http://localhost:3000/ and the api expl
 `yarn`<br />
 `yarn dev`
 
-By default the result will be visible at http://localhost:3000/ 
+By default the result will be visible at http://localhost:7777/ 
