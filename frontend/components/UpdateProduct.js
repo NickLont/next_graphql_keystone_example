@@ -45,7 +45,6 @@ const UpdateProduct = ({ id }) => {
     const { inputs, handleChange, resetForm, clearForm } = useForm({
         name: data?.Product?.name,
         price: data?.Product?.price,
-        image: data?.Product?.image,
         description: data?.Product?.description,
     })
 
@@ -57,8 +56,7 @@ const UpdateProduct = ({ id }) => {
                 onSubmit={async (e) => {
                     e.preventDefault()
                     // implement onSubmit
-                    const res = await updateProduct({ variables: { id, data: inputs } })
-                    console.log('res: ', res)
+                    await updateProduct({ variables: { id, data: inputs } })
                 }}
             >
                 <fieldset disabled={updateLoading} aria-busy={updateLoading}>

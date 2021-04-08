@@ -5,6 +5,7 @@
     "rules": {
       "no-console": 2,
       "arrow-body-style": "off",
+      "no-restricted-globals":"off",
       "prettier/prettier": [
         "error",
         {
