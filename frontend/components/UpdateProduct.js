@@ -12,6 +12,7 @@ const SINGLE_PRODUCT_QUERY = gql`
             description
             price
             photo {
+                id
                 altText
                 image {
                     publicUrlTransformed
@@ -69,7 +70,7 @@ const UpdateProduct = ({ id }) => {
                             name="name"
                             required
                             placeholder="name"
-                            value={inputs.name}
+                            value={inputs.name || ''}
                             onChange={handleChange}
                         />
                     </label>
@@ -80,7 +81,7 @@ const UpdateProduct = ({ id }) => {
                             id="price"
                             name="price"
                             placeholder="price"
-                            value={inputs.price}
+                            value={inputs.price || ''}
                             onChange={handleChange}
                         />
                     </label>
@@ -91,7 +92,7 @@ const UpdateProduct = ({ id }) => {
                             id="description"
                             name="description"
                             placeholder="description"
-                            value={inputs.description}
+                            value={inputs.description || ''}
                             onChange={handleChange}
                         />
                     </label>
