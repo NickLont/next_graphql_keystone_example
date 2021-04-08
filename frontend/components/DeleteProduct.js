@@ -30,7 +30,6 @@ const DeleteProduct = ({ id, children }) => {
                     try {
                         deleteProduct(id)
                     } catch (error) {
-                        console.log('error: ', error)
                         alert('Something went wrong with deleting')
                     }
                 }
