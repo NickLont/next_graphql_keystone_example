@@ -19,7 +19,7 @@ const DeleteProduct = ({ id, children }) => {
             id,
         },
         // callback for when the update succeeds
-        // update,
+        update,
     })
     return (
         <button
