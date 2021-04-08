@@ -4,6 +4,7 @@
     ],
     "rules": {
       "no-console": 2,
+      "arrow-body-style": "off",
       "prettier/prettier": [
         "error",
         {
