@@ -6,29 +6,32 @@ import PriceTagStyles from './styles/PriceTagStyles'
 import TitleStyles from './styles/TitleStyles'
 import DeleteProduct from './DeleteProduct'
 
-const Products = ({ product }) => (
-    <ItemStyles>
-        <img src={product?.photo?.image?.publicUrlTransformed} alt={product.name} />
-        <TitleStyles>
-            <Link href={`/product/${product?.id}`}>{product?.name}</Link>
-        </TitleStyles>
-        <PriceTagStyles>{formatMoney(product.price)}</PriceTagStyles>
-        <p>{product.description}</p>
-        <div className="buttonList">
-            <Link
-                href={{
-                    pathname: '/update',
-                    query: {
-                        id: product.id,
-                    },
-                }}
-            >
-                Edit
-            </Link>
-            <DeleteProduct id={product.id}>Delete</DeleteProduct>
-        </div>
-    </ItemStyles>
-)
+const Products = ({ product }) => {
+    if (!product) return null
+    return (
+        <ItemStyles>
+            <img src={product?.photo?.image?.publicUrlTransformed} alt={product.name} />
+            <TitleStyles>
+                <Link href={`/product/${product?.id}`}>{product?.name}</Link>
+            </TitleStyles>
+            <PriceTagStyles>{formatMoney(product.price)}</PriceTagStyles>
+            <p>{product.description}</p>
+            <div className="buttonList">
+                <Link
+                    href={{
+                        pathname: '/update',
+                        query: {
+                            id: product.id,
+                        },
+                    }}
+                >
+                    Edit
+                </Link>
+                <DeleteProduct id={product.id}>Delete</DeleteProduct>
+            </div>
+        </ItemStyles>
+    )
+}
 
 Products.propTypes = {
     product: PropTypes.object,
