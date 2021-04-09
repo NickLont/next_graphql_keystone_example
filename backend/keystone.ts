@@ -25,6 +25,12 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password'], // Creating an initial user when starting for the first time
     // TODO add all the roles here
   },
+  // adding passwordResetLink to createAuth exposes graphQL methods for password management / reset
+  passwordResetLink: {
+    async sendToken(args) {
+      console.log('args: ', args);
+    },
+  },
 });
 
 export default withAuth(
