@@ -24,13 +24,20 @@ class MyApp extends App {
 }
 
 // async default Next method
-MyApp.getInitialProps = async ({ Component, ctx }) => {
-    let pageProps = {}
-    if (Component.getInitialProps) {
-        pageProps = await Component.getInitialProps(ctx)
-    }
-    pageProps.query = ctx.query // this gives us query variables from the url, ex: /products
-    return pageProps
-}
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered
+
+// MyApp.getInitialProps = async (context) => {
+//     const { Component, ctx } = context
+//     let pageProps = {}
+//     if (Component.getInitialProps) {
+//         pageProps = await Component.getInitialProps(ctx)
+//     }
+//     pageProps.query = ctx.query // this gives us query variables from the url, ex: /products
+//     return { pageProps }
+// }
 
 export default withData(MyApp)
