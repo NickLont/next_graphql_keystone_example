@@ -2,7 +2,7 @@ Arguments:
   /home/nick/.nvm/versions/node/v14.16.0/bin/node /usr/share/yarn/bin/yarn.js dev
 
 PATH: 
-  /home/nick/Desktop/Projects/advanced_react/backend/node_modules/.bin:/tmp/yarn--1617982761724-0.8779237636993269:/home/nick/Desktop/Projects/advanced_react/backend/node_modules/.bin:/home/nick/.config/yarn/link/node_modules/.bin:/home/nick/.yarn/bin:/home/nick/.nvm/versions/node/v14.16.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/nick/.nvm/versions/node/v14.16.0/lib/node_modules/npm/bin/node-gyp-bin:/home/nick/.nvm/versions/node/v14.16.0/bin/node_modules/npm/bin/node-gyp-bin:/home/nick/.nvm/versions/node/v14.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/nick/Desktop/Projects/advanced_react/backend/node_modules/.bin:/tmp/yarn--1618232537276-0.8421346287639033:/home/nick/Desktop/Projects/advanced_react/backend/node_modules/.bin:/home/nick/.config/yarn/link/node_modules/.bin:/home/nick/.yarn/bin:/home/nick/.nvm/versions/node/v14.16.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/nick/.nvm/versions/node/v14.16.0/lib/node_modules/npm/bin/node-gyp-bin:/home/nick/.nvm/versions/node/v14.16.0/bin/node_modules/npm/bin/node-gyp-bin:/home/nick/.nvm/versions/node/v14.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.22.5
@@ -42,9 +42,7 @@ npm manifest:
     },
     "eslintConfig": {
       "extends": "wesbos/typescript.js",
-      "rules": {
-        "@typescript-eslint/no-unsafe-assignment": 0
-      }
+      "rules": {}
     },
     "babel": {
       "presets": [

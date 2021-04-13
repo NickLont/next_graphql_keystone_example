@@ -9,6 +9,7 @@ import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { User } from './schemas/User';
 import { insertSeedData } from './seed-data/index';
+import { sendPasswordResetEmail } from './lib/mail';
 
 const databaseURL = process.env.DATABASE_URL || '';
 
@@ -28,7 +29,9 @@ const { withAuth } = createAuth({
   // adding passwordResetLink to createAuth exposes graphQL methods for password management / reset
   passwordResetLink: {
     async sendToken(args) {
+      const res = await sendPasswordResetEmail(args.token, args.identity);
       console.log('args: ', args);
+      console.log('res: ', res);
     },
   },
 });

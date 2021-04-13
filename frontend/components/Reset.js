@@ -39,7 +39,6 @@ const Reset = () => {
         return <p>{`Created user with email: ${data?.createUser?.email}`} - Please go ahead and sign in!</p>
     }
 
-    console.log('data: ', data)
     return (
         <Form method="POST" onSubmit={handleSubmit}>
             <h2>Request a password reset</h2>
